@@ -1,0 +1,75 @@
+/* Neon Vice — editor chrome. Dark plum, hot sunset accents, system fonts only. */
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: #12081a;
+  color: #f4eef7;
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.app { display: flex; height: 100vh; overflow: hidden; }
+.panel {
+  width: 348px; flex: 0 0 348px; overflow-y: auto; padding: 20px 18px 28px;
+  background: #1c0e26; border-right: 1px solid #3a1c4d;
+}
+.panel h1 {
+  margin: 0 0 4px; font-size: 30px; letter-spacing: 0.02em;
+  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(90deg, #ffb400, #ff5e3a, #ff2ea6);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.tagline { margin: 0 0 6px; color: #c9b3d6; font-size: 13px; }
+.panel section { border-top: 1px solid #3a1c4d; padding: 14px 0 4px; margin-top: 12px; }
+.panel h2 { margin: 0 0 10px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #ff8a5c; }
+label { display: flex; flex-direction: column; gap: 5px; font-weight: 600; margin-bottom: 10px; }
+label.check { flex-direction: row; align-items: center; gap: 8px; font-weight: 400; }
+input[type=text], select {
+  font: inherit; color: #f4eef7; background: #2a1538;
+  padding: 8px 10px; border: 1px solid #5b2f73; border-radius: 8px;
+}
+input[type=range] { accent-color: #ff5e3a; }
+button {
+  font: inherit; font-weight: 700; color: #f4eef7; cursor: pointer;
+  padding: 9px 12px; border: 1px solid #5b2f73; border-radius: 8px; background: #2a1538;
+}
+button:hover:not(:disabled) { border-color: #ff5e3a; }
+button:disabled { opacity: 0.4; cursor: default; }
+.row { display: flex; gap: 8px; margin-bottom: 8px; }
+.row button { flex: 1; }
+.dropzone {
+  border: 2px dashed #ff5e3a; border-radius: 10px; padding: 18px 12px;
+  text-align: center; color: #ffc9a8; cursor: pointer; margin-bottom: 10px;
+  background: rgba(255, 94, 58, 0.07);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
+.chip { padding: 5px 10px; font-size: 12px; border-radius: 999px; }
+.picks { display: flex; flex-wrap: wrap; gap: 8px; }
+.pick { flex: 1 1 46%; }
+.pick.active, .swatch.active { outline: 2px solid #fff; outline-offset: 1px; }
+.swatch { flex: 1 1 46%; min-height: 44px; position: relative; border: 0; }
+.swatch span {
+  position: absolute; left: 8px; bottom: 6px; font-size: 12px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+.aspect-row { display: flex; gap: 8px; align-items: center; margin-top: 10px; color: #c9b3d6; }
+.aspect-row button { flex: 1; }
+.hint { margin: 0 0 8px; color: #c9b3d6; font-size: 12px; }
+.exports { display: flex; flex-direction: column; gap: 8px; }
+.exports button {
+  background: linear-gradient(90deg, #ff5e3a, #ff2ea6);
+  border: 0; padding: 12px; font-size: 15px;
+}
+#status { color: #8fe3d8; min-height: 20px; margin: 8px 0 0; font-size: 13px; }
+.stage {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 24px; min-width: 0;
+  background:
+    radial-gradient(900px 500px at 70% -10%, rgba(255, 46, 166, 0.25), transparent 60%),
+    radial-gradient(700px 500px at 20% 110%, rgba(255, 94, 58, 0.28), transparent 60%),
+    #12081a;
+}
+#cover { box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6); border-radius: 4px; touch-action: none; cursor: grab; }
+#cover:active { cursor: grabbing; }
+body.shot-cover .panel { display: none; }
+body.shot-cover .app { display: block; height: 100vh; }
+body.shot-cover .stage { padding: 0; height: 100vh; }
+body.shot-cover #cover { width: 100vw; height: 100vh; box-shadow: none; border-radius: 0; }
